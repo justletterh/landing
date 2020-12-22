@@ -1,6 +1,7 @@
 function fn(s){
     return `compiled-${s.split(".").slice(-1)[0]}-stylesheet-${s.toLowerCase().replace(RegExp("\\.", 'g'),"-dot-")}`.toLowerCase();
 }
+
 //SCSS
 (async () => {
     var n;
@@ -14,11 +15,11 @@ function fn(s){
     }))).join("\n");
     const basename = 'tmp.scss';
     Sass.writeFile(basename, fullCode);
-    const compiled = await Sass.compile(`@import "${basename}"; `);
+    const compiled = await Sass.compile(`@import "${basename}"; `,{indentedSyntax: true});
     document.head.innerHTML += `<style id="${fn(n)}">${compiled}</style>`;
 })();
+
 //SASS
-Sass.options({indentedSyntax: false});
 (async () => {
     var n;
     let buffer='';

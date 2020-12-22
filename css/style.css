@@ -1,3 +1,16 @@
+:root{
+    --hframe-size: 250px;
+}
+
 body {
     text-align: center;
+}
+
+iframe.h{
+    position: absolute;
+    border: none;
+    height: var(--hframe-size);
+    width: var(--hframe-size);
+    left: 0;
+    bottom: 0;
 }

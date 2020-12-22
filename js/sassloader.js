@@ -17,6 +17,7 @@ function fn(s){
     Sass.writeFile(basename, fullCode);
     const compiled = await Sass.compile(`@import "${basename}"; `,{indentedSyntax: true});
     document.head.innerHTML += `<style id="${fn(n)}">${compiled}</style>`;
+    console.log(`"${fn(n)}" Was Loaded.`);
 })();
 
 //SASS
@@ -33,6 +34,6 @@ function fn(s){
     const basename = 'tmp.sass';
     Sass.writeFile(basename, fullCode);
     const compiled = await Sass.compile(`@import "${basename}"; `,{indentedSyntax: false});
-    console.log(compiled)
     document.head.innerHTML += `<style id="${fn(n)}">${compiled}</style>`;
+    console.log(`"${fn(n)}" Was Loaded.`);
 })();
